@@ -6,10 +6,18 @@
     <title>Blog de receitas</title>
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
     <section>
         {% for receita in receitas%}
             <ul>
-                <li><a href="{% url 'detalhes_receita' id_receita=receita.id %}">{{receita.titulo}}</a></li>
+                <li><a href="{% url 'detalhes_receita' id_receita=receita.id %}">{{receita.titulo}}</a>
+                    |
+                    <a href="{% url 'editar_receita' id_receita=receita.id %}">Editar</a>
+                </li>
             </ul>
         {% endfor %}
     </section>
