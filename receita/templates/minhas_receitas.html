@@ -9,7 +9,7 @@
     <section>
         {% for receita in receitas%}
             <ul>
-                <li>{{receita.titulo}}</li>
+                <li><a href="{% url 'detalhes_receita' id_receita=receita.id %}">{{receita.titulo}}</a></li>
             </ul>
         {% endfor %}
     </section>
